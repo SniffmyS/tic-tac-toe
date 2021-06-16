@@ -76,9 +76,9 @@ int main()
 				gameOver = true;
 				continue;
 			}
-			else if(game.winConditionPlayer2() == true) // If player 2 wins
+			else if(game.winConditionPlayer2() == true) // If player 0 wins
 			{
-				std::cout << "Player 2 wins!" << std::endl;
+				std::cout << "Player 0 wins!" << std::endl;
 				gameOver = true;
 				continue;
 			}
