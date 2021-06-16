@@ -49,7 +49,6 @@ int main()
 	bool Player1Wins = false; // If player 1 wins
 	bool Player2Wins = false; // If player 2 wins
 	bool gameOver = false; // If either player 1 or 2 wins
-	bool event; // Boolean if something happened during game
 	while(!gameOver) // Run while the game is not over
 	{
 		gameMechanic game(cells); // Initialize gameMechanic class
@@ -99,14 +98,10 @@ int main()
 			event = true;
 		}
 
-		if(event == true)
-		{
-			if(turn == 0) // If turn is 0, cell[currentInput - 1] will be 1
-				cells[currentInput - 1] = 0;
-			else
-				cells[currentInput - 1] = 1; // Else 2
-			event = !event;
-		}
+		if(turn == 0) // If turn is 0, cell[currentInput - 1] will be 1
+			cells[currentInput - 1] = 0;
+		else
+			cells[currentInput - 1] = 1; // Else 2
 		turn = !turn; // Inverts the turn every turn lol(It's a bad pun I know)
 	}	
 	return 0; // Return the program, DUH!
