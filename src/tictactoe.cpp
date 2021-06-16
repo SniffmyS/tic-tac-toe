@@ -56,18 +56,32 @@ int main()
 			system("clear"); // Mac, linux and BSDs uses clear
 		else
 			system("cls"); // Windows uses cls, I know it because I used to use Windows 10
-		if(game.winConditionPlayer1() == true) // Checks if Player 1 wins; more info on gameMechanic.hpp and gameMechanic.cpp
+		int counter = 0;
+		for(auto i = cells.begin(); i != cells.end(); ++i) // Checks if all elements in cell are occupied
 		{
-			std::cout << "Player 1 wins!" << std::endl;
+			if(*i != -1)
+				++counter;
+		}
+		if(counter == 9 && !(game.winConditionPlayer1() == true || game.winConditionPlayer2() == true)) // Checks if the opponent wins and get draw at the same time, if that happens
+		{
+			std::cout << "Draw!\nNobody won" << std::endl; // Pity
 			gameOver = true;
 			continue;
 		}
-
-		if(game.winConditionPlayer2() == true) // Checks if Player 2 wins
+		else // If not draw
 		{
-			std::cout << "Player 0 wins!" << std::endl;
-			gameOver = true;
-			continue;
+			if(game.winConditionPlayer1() == true) // If player 1 wins
+			{
+				std::cout << "Player 1 wins!" << std::endl;
+				gameOver = true;
+				continue;
+			}
+			else if(game.winConditionPlayer2() == true) // If player 2 wins
+			{
+				std::cout << "Player 2 wins!" << std::endl;
+				gameOver = true;
+				continue;
+			}
 		}
 		std::cout << "Player " << turn << "'s turn" << std::endl; // Just telling the player(s) Who's turn it is
 		int currentInput; // Current input for the turn
