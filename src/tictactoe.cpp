@@ -84,18 +84,18 @@ int main()
 		if(currentInput < 1) // If the input is 0 or smaller
 		{
 			std::cout << "Number too small! Try again" << std::endl; // Screams at the user lol
-			event = true;
+			continue;
 		}
 		else if(currentInput > 9) // If the input is 10 or bigger
 		{
 			std::cout << "Number too big! Try again" << std::endl;
-			event = true;
+			continue;
 		}
 
 		if(cells[currentInput - 1] == 0 || cells[currentInput - 1] == 1) // Checks if the space is occupied
 		{
 			std::cout << "This space has been occupied, try again" << std::endl;
-			event = true;
+			continue;
 		}
 
 		if(turn == 0) // If turn is 0, cell[currentInput - 1] will be 1
